@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestO1(t *testing.T) {
+func TestAddItems(t *testing.T) {
 	tests := []struct {
 		name   string
 		input  int
@@ -41,15 +41,15 @@ func TestO1(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := o1(tt.input)
+			result := addItems(tt.input)
 			assert.Equal(t, tt.output, result)
 		})
 	}
 }
 
-func BenchmarkO1(b *testing.B) {
+func BenchmarkAddItems(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		result := o1(i)
+		result := addItems(i)
 		assert.NotNil(b, result)
 		b.ReportAllocs()
 	}
